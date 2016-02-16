@@ -6,16 +6,16 @@
 </head>
 <body>
     <div class='container'>
-        <h1>Clock Angle Calculator</h1>
-        <p>Enter the time on the clock you'd like to find the angle for.</p>
-        <form action='/angle'>
+        <h1>Anagram</h1>
+        <p>Enter a word and a list of words to compare.</p>
+        <form action='/anagram'>
             <div class='form-group'>
-              <label for='hour'>Hour</label>
-              <input id='hour' name='hour' class='form-control' type='number' max="12" min="1">
-              <label for='minute'>Minute:</label>
-              <input id='minute' name='minute' class='form-control' type='number' max="60" min="0">
+              <label for='word'>Word</label>
+              <input id='word' name='word' type='text'>
+              <label for='list'>List of words</label>
+              <input id='list' name='list' type='list'>
             </div>
-            <button type='submit' class='btn-success'>Find Angle</button>
+            <button type='submit' class='btn-success'>Submit</button>
         </form>
     </div>
 </body>

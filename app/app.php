@@ -8,16 +8,15 @@
         'twig.path' => __DIR__.'/../views'
     ));
 
-    // $app->get("/", function() use ($app) {
-    //     return $app['twig']->render('form.html.twig');
-    // });
-    //
-    // $app->get("/angle", function() use($app) {
-    //     $myAngle = new ClockAngle;
-    //
-    //     $finalAngle = $myAngle->angle($_GET['hour'], $_GET['minute']);
-    //     return $app['twig']->render('angle.html.twig', array('finalAngle' => $finalAngle));
-    // });
+    $app->get("/", function() use ($app) {
+        return $app['twig']->render('form.html.twig');
+    });
+
+    $app->get("/anagram", function() use($app) {
+        $myWord = new Anagram;
+        $outputWord = $myWord->checkWord($_GET['word'], $_GET['list']);
+        return $app['twig']->render('anagram.html.twig', array('outputWord' => $outputWord));
+    });
 
     return $app;
 ?>
