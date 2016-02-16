@@ -13,7 +13,13 @@
     });
 
     $app->get("/change", function() use($app) {
-        $myChange = new Change;
+        $myChange = new Person;
+        $output = $myChange->giveChange($_GET['change']);
+        return $app['twig']->render('change.html.twig', array('output' => $output));
+    });
+
+    $app->get("/change", function() use($app) {
+        $myChange = new Person;
         $output = $myChange->giveChange($_GET['change']);
         return $app['twig']->render('change.html.twig', array('output' => $output));
     });
