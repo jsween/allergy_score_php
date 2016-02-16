@@ -1,6 +1,33 @@
 <?php
   class Anagram
   {
+      public $first_word;
+      public $word_list;
+
+      function checkWord($first_word, $word_list)
+      {
+          $this->first_input = $first_word;
+          $this->word_list = array($word_list);
+
+          if(!(ctype_alpha($first_word))) {
+              return false;
+          }
+          foreach ($word_list as $i => $word) {
+              if(!ctype_alpha($word)) {
+                return false;
+              }
+          }
+          foreach ($word_list as $i => $word) {
+              if((strcasecmp($first_word,$word) != 0))
+              {
+                  return false;
+              }
+          }
+          return true;
+
+      }
+
+
     // function canAttack($x_start, $y_start, $x_move, $y_move)
     // {
     //     $input_array = array($x_start, $y_start, $x_move, $y_move);
