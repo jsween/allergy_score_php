@@ -2,14 +2,17 @@
 <html>
 <head>
     <link rel='stylesheet' href='https://maxcdn.bootstrapcdn.com/bootstrap/3.3.1/css/bootstrap.min.css'>
-    <title>Anagram</title>
+    <title>Change</title>
 </head>
 <body>
     <div class="container">
         <h1>Results</h1>
-        <h4>The anagrams are:
-        {% for word in outputWord %}
-            {{ word }}<br>
+        <h3>Change:</h3>
+        <hr>
+        {% for change in output %}
+        <ul>
+            <li>{{ change }} Quarter<br>
+        </ul>
         {% endfor %}
         </h4>
     </div>

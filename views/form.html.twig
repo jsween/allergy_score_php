@@ -2,18 +2,16 @@
 <html>
 <head>
     <link rel='stylesheet' href='https://maxcdn.bootstrapcdn.com/bootstrap/3.3.1/css/bootstrap.min.css'>
-    <title>Anagram</title>
+    <title>Change Calc</title>
 </head>
 <body>
     <div class='container'>
-        <h1>Anagram</h1>
-        <p>Enter a word and a list of words to compare.</p>
-        <form action='/anagram'>
+        <h1>Change Calculator</h1>
+        <p>Enter the amount of change you have.</p>
+        <form action='/change'>
             <div class='form-group'>
-              <label for='word'>Word</label>
-              <input id='word' name='word' type='text'>
-              <label for='list'>List of words</label>
-              <input id='list' name='list' type='text'>
+              <label for='change'>Cents:</label>
+              <input id='change' name='change' type='int'>
             </div>
             <button type='submit' class='btn-success'>Submit</button>
         </form>

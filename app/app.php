@@ -12,12 +12,10 @@
         return $app['twig']->render('form.html.twig');
     });
 
-    $app->get("/anagram", function() use($app) {
-        $myWord = new Anagram;
-        $outputWord = $myWord->checkWord($_GET['word'], $_GET['list']);
-        var_dump($outputWord);
-        return $app['twig']->render('anagram.html.twig', array('outputWord' => $outputWord));
-
+    $app->get("/change", function() use($app) {
+        $myChange = new Change;
+        $output = $myChange->giveChange($_GET['change']);
+        return $app['twig']->render('change.html.twig', array('output' => $output));
     });
 
     return $app;

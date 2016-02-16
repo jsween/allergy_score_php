@@ -1,67 +1,29 @@
 <?php
-  class Anagram
-  {
-      public $first_word;
-      public $word_list;
-      public $anagram_array;
-      public $sorted_array;
-      public $sorted_word;
+    class Change
+    {
+    
+        function giveChange($user_change)
+        {
+            $final_change = array();
+            //quarters
+            $quarters = floor($user_change/25);
+            array_push($final_change, $quarters);
+            $remainder = floor($user_change % 25);
+            //dimes
+            $dimes = floor($remainder/10);
+            array_push($final_change, $dimes);
+            $remainder = floor($remainder % 10);
+            //nickels
+            $nickels = floor($remainder/5);
+            array_push($final_change, $nickels);
+            $remainder = floor($remainder % 5);
+            //pennies
+            $pennies = floor($remainder/1);
+            array_push($final_change, $pennies);
+            $remainder = floor($remainder % 1);
 
-      function checkWord($first_word, $word_list)
-      {
-          $this->first_input = $first_word;
-          $this->word_list = array($word_list);
-          $anagram_array = array();
-          $sorted_array = array();
-
-        //   if(!(ctype_alpha($first_word))) {
-        //       return false;
-        //   }
-          $word_list = explode(" ", $word_list);
-        //   foreach ($word_list as $i => $word) {
-        //       if(!ctype_alpha($word)) {
-        //         return false;
-        //       }
-        //   }
-        //   foreach ($word_list as $i => $word) {
-        //       if((strcasecmp($first_word,$word) == 0))
-        //       {
-        //           array_push($anagram_array, $word);
-        //       }
-        //   }
-
-          $sorted_word = str_split($first_word, 1);
-          asort($sorted_word);
-          $new_sorted_word = array();
-          foreach ($sorted_word as $letter) {
-              array_push($new_sorted_word, $letter);
-          }
-          $new_sorted_word = join("", $new_sorted_word);
-
-          foreach ($word_list as $i => $word) {
-              $word = str_split($word, 1);
-              asort($word);
-              $new_word = array();
-              foreach($word as $letter) {
-                  array_push($new_word, $letter);
-              }
-              $new_word = join("", $new_word);
-              if(strcasecmp($new_sorted_word, $new_word) == 0) {
-                  array_push($anagram_array, $word_list[$i]);
-              }
-
-            //   $word = asort($word);
-            //   $word = join(" ", $word);
-            //   if (strcasecmp($sorted_word, $word) == 0)
-            //   {
-            //       array_push($anagram_array, $word_list[$i]);
-            //   }
-          }
-
-
-          return $anagram_array;
-
-      }
-  }
+        return $final_change;
+        }
+    }
 
 ?>

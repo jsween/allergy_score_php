@@ -2,74 +2,55 @@
 
     require_once "src/Anagram.php";
 
-    class AnagramTest extends PHPUnit_Framework_TestCase
-    {   //check if alpha
-        // function test_for_all_letters()
-        // {
-        //     //Arrange
-        //     $test_letter_input = new Anagram;
-        //     $word= "abc";
-        //     $array = array("Abc");
-        //
-        //     //Act
-        //     $result = $test_letter_input->checkWord($word,$array);
-        //
-        //     //Assert
-        //     $this->assertEquals(true, $result);
-        // }
-
-        // function test_for_non_alpha()
-        // {
-        //     //Arrange
-        //     $test_letter_input = new Anagram;
-        //     $word= "ab12$";
-        //     $array = array("abc");
-        //
-        //     //Act
-        //     $result = $test_letter_input->checkWord($word,$array);
-        //
-        //     //Assert
-        //     $this->assertEquals(false, $result);
-        // }
-        //
-        // function test_for_match()
-        // {
-        //     //Arrange
-        //     $test_letter_input = new Anagram;
-        //     $word= "cat";
-        //     $array = array("cat", "Cat", "dog");
-        //
-        //     //Act
-        //     $result = $test_letter_input->checkWord($word,$array);
-        //
-        //     //Assert
-        //     $this->assertEquals(["cat", "Cat"], $result);
-        // }
-        // function test_for_fail_match()
-        // {
-        //     //Arrange
-        //     $test_letter_input = new Anagram;
-        //     $word= "cat";
-        //     $array = array("catch", "Catty", "dog");
-        //
-        //     //Act
-        //     $result = $test_letter_input->checkWord($word,$array);
-        //
-        //     //Assert
-        //     $this->assertEquals([], $result);
-        // }
-        function test_for_sorted_list()
+    class ChangeTest extends PHPUnit_Framework_TestCase
+    {
+        function test_for_1_quarter()
         {
             //Arrange
-            $test_letter_input = new Anagram;
-            $word= "lemon";
-            $array = array("melon", "dog", "kite", "lemon");
+            $test_user_input = new Change;
+            $user_change= 25;
 
             //Act
-            $result = $test_letter_input->checkWord($word,$array);
+            $result = $test_user_input->giveChange($user_change);
 
             //Assert
-            $this->assertEquals(["melon", "lemon"], $result);
+            $this->assertEquals([1,0,0,0], $result);
+        }
+        function test_for_dimes()
+        {
+            //Arrange
+            $test_user_input = new Change;
+            $user_change= 35;
+
+            //Act
+            $result = $test_user_input->giveChange($user_change);
+
+            //Assert
+            $this->assertEquals([1,1,0,0], $result);
+        }
+        function test_for_nickels()
+        {
+            //Arrange
+            $test_user_input = new Change;
+            $user_change= 24;
+
+            //Act
+            $result = $test_user_input->giveChange($user_change);
+
+            //Assert
+            $this->assertEquals([0,2,0,4], $result);
+        }
+        function test_for_pennies()
+        {
+            //Arrange
+            $test_user_input = new Change;
+            $user_change= 67;
+
+            //Act
+            $result = $test_user_input->giveChange($user_change);
+
+            //Assert
+            $this->assertEquals([2,1,1,2], $result);
         }
 
     }
