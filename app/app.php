@@ -1,6 +1,6 @@
 <?php
     require_once __DIR__."/../vendor/autoload.php";
-    require_once __DIR__."/../src/Anagram.php";
+    require_once __DIR__."/../src/Person.php";
 
     $app = new Silex\Application();
 
@@ -12,17 +12,15 @@
         return $app['twig']->render('form.html.twig');
     });
 
-    $app->get("/change", function() use($app) {
-        $myChange = new Person;
-        $output = $myChange->giveChange($_GET['change']);
-        return $app['twig']->render('change.html.twig', array('output' => $output));
+    $app->get("/allergies", function() use($app) {
+        $personOne = new Person;
+        $allergies = $personOne->makeArray($_GET['allergy']);
+        $personOne = $personOne->findScore($allergies);
+        var_dump($allergies);
+        var_dump($personOne);
+        return $app['twig']->render('allergies.html.twig', array('integer' => $personOne));
     });
 
-    $app->get("/change", function() use($app) {
-        $myChange = new Person;
-        $output = $myChange->giveChange($_GET['change']);
-        return $app['twig']->render('change.html.twig', array('output' => $output));
-    });
 
     return $app;
 ?>
